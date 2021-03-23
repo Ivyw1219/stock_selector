@@ -82,4 +82,4 @@ st.plotly_chart(fig)
 
 
 Email_address = st.sidebar.text_input("Your Email Address:")
-st.sidebar.info("Thank you! 
+st.sidebar.info("Thank you! ")
