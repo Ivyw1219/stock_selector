@@ -2,9 +2,6 @@ import pandas as pd; import os
 import streamlit as st
 import time,datetime
 import plotly.express as px;import plotly.graph_objects as go 
-from plotly.subplots import make_subplots
-from main import Send_email
-
 st.title('Demo of Smart Stock Selector')
 
 st.sidebar.header('Build Your Stock Selector')
@@ -83,11 +80,6 @@ fig =px.bar(new_df,x= 'net_profits', y = 'name',orientation='h',template = "plot
 fig.update_layout(coloraxis=dict(colorscale='Bluered_r'), showlegend=False)
 st.plotly_chart(fig)
 
-# automail part
+
 Email_address = st.sidebar.text_input("Your Email Address:")
-st.sidebar.info("Thank you! The result will send to your address soon")
-df_sending = new_df[['code','name']].to_csv('https://github.com/Ivyw1219/stock_selector/tree/main/app_demo/stock_data/股票筛选结果.csv')
-file_name_list = ['股票筛选结果.csv']
-email_text = "%s股票筛选结果"%datetime.datetime.now().strftime('%Y%m%d %H')
-recei_list = [Email_address]
-Send_email(file_name_list,email_text,recei_list)
+st.sidebar.info("Thank you! 
