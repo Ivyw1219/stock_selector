@@ -6,13 +6,10 @@ from plotly.subplots import make_subplots
 from main import Send_email
 
 st.title('Demo of Smart Stock Selector')
-st.header('Check data')
-html_temp = '''
-    <div style = 'background-color:royalblue;'><p style = "color:white;font-size:20px";>
-    '''
+
 st.sidebar.header('Build Your Stock Selector')
 
-def file_selector(folder_path ='/Users/ivyw/Documents/kaggle/stock/app_demo/main'):
+def file_selector(folder_path ='https://github.com/Ivyw1219/stock_selector/tree/main/app_demo/stock_data'):
     filenames = os.listdir(folder_path)
     selected_filename = st.selectbox("Select a Dataset",filenames)
     return os.path.join(folder_path, selected_filename)
@@ -89,8 +86,8 @@ st.plotly_chart(fig)
 # automail part
 Email_address = st.sidebar.text_input("Your Email Address:")
 st.sidebar.info("Thank you! The result will send to your address soon")
-df_sending = new_df[['code','name']].to_csv('/Users/ivyw/Documents/kaggle/stock/app_demo/股票筛选结果.csv')
+df_sending = new_df[['code','name']].to_csv('https://github.com/Ivyw1219/stock_selector/tree/main/app_demo/stock_data/股票筛选结果.csv')
 file_name_list = ['股票筛选结果.csv']
 email_text = "%s股票筛选结果"%datetime.datetime.now().strftime('%Y%m%d %H')
-recei_list = [Email_address]#写上自己的邮箱测试一下
+recei_list = [Email_address]
 Send_email(file_name_list,email_text,recei_list)
