@@ -6,7 +6,7 @@ st.title('Demo of Smart Stock Selector')
 
 st.sidebar.header('Build Your Stock Selector')
 
-def file_selector(folder_path ='https://github.com/Ivyw1219/stock_selector/tree/main/app_demo/stock_data'):
+def file_selector(folder_path ='https://raw.githubusercontent.com/Ivyw1219/stock_selector/main/app_demo/stock_data'):
     filenames = os.listdir(folder_path)
     selected_filename = st.selectbox("Select a Dataset",filenames)
     return os.path.join(folder_path, selected_filename)
